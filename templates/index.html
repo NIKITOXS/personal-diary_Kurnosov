@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Мои записи</h2>
+{% if entries %}
+    {% for entry in entries %}
+        <div class="card">
+            <h3>{{ entry.title }}</h3>
+            <p class="date">{{ entry.date }}</p>
+            <div class="actions">
+                <a href="/entry/{{ entry.id }}">Читать</a>
+                <form method="POST" action="/delete/{{ entry.id }}" style="display:inline;">
+                    <button type="submit" class="delete-btn">Удалить</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>Пока нет записей. Создайте первую!</p>
+{% endif %}
+{% endblock %}

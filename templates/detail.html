@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <h2>{{ entry.title }}</h2>
+    <p class="date">{{ entry.date }}</p>
+    <p>{{ entry.content }}</p>
+    <div class="actions" style="margin-top: 20px;">
+        <a href="/edit/{{ entry.id }}">Редактировать</a>
+        <form method="POST" action="/delete/{{ entry.id }}" style="display:inline;">
+            <button type="submit" class="delete-btn">Удалить</button>
+        </form>
+        <a href="/">На главную</a>
+    </div>
+</div>
+{% endblock %}
