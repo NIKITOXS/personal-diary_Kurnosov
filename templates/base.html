@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Личный дневник</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Личный дневник</h1>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="/add">Новая запись</a>
+            <a href="/filter/week" class="filter-link">Записи за неделю</a>
+        </nav>
+        <form method="GET" action="/search" style="margin: 0; display: flex; gap: 5px;">
+            <input type="text" name="q" placeholder="Поиск..." style="margin: 0; width: auto;">
+            <button type="submit" style="background: #3498db; margin: 0;">Найти</button>
+        </form>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>Автор: Никита Курносов</p>
+    </footer>
+</body>
+</html>
